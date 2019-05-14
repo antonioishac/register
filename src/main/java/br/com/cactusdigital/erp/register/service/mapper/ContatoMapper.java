@@ -9,5 +9,8 @@ import br.com.cactusdigital.erp.register.service.dto.ContatoDTO;
 @Mapper(componentModel="spring", uses= {})
 public interface ContatoMapper extends EntityMapper<ContatoDTO, Contato> {
 	
-		
+	@Override
+	@Mapping(target="pessoa", ignore= true)
+	ContatoDTO toDto(Contato entity);
+	
 }
