@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   		http://www.liquibase.org/xml/ns/dbchangelog
+                   		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="sysdate" dbms="mysql"/>
+
+    <changeSet id="1" author="antonio.ishac">
+        <sqlFile dbms="mysql" path="db/changelog/sql/V0000001__criar_tabela_pessoa.sql" encoding="UTF-8" stripComments="true"/>
+    </changeSet>
+
+    <changeSet id="2" author="antonio.ishac">
+        <sqlFile dbms="mysql" path="db/changelog/sql/V0000002__criar_tabela_estado_civil_pessoa_fisica_e_pessoa_juridica.sql" encoding="UTF-8" stripComments="true"/>
+    </changeSet>
+    
+    <changeSet id="3" author="antonio.ishac">
+        <sqlFile dbms="mysql" path="db/changelog/sql/V0000003__criar_tabela_endereco_contato_telefone.sql" encoding="UTF-8" stripComments="true"/>
+    </changeSet>
+
+</databaseChangeLog>
