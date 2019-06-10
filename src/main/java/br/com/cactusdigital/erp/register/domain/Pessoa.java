@@ -93,7 +93,7 @@ public class Pessoa implements Serializable {
     //private PessoaJuridica pessoaJuridica;
     
 	@JsonIgnoreProperties("pessoa")
-	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contato> contatos;
     
 	//@JsonIgnoreProperties("pessoa")
