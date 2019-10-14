@@ -1,6 +1,7 @@
 package br.com.cactusdigital.erp.register.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -96,9 +97,9 @@ public class Pessoa implements Serializable {
 	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contato> contatos;
     
-	//@JsonIgnoreProperties("pessoa")
-	//@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)
-	//private List<Endereco> enderecos = new ArrayList<>();
+	@JsonIgnoreProperties("pessoa")
+	@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)
+	private List<Endereco> enderecos = new ArrayList<>();
 	
 	//@JsonIgnoreProperties("pessoa")
 	//@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)
@@ -242,7 +243,32 @@ public class Pessoa implements Serializable {
 	 */
 	public void setContatos(List<Contato> contatos) {
 		this.contatos = contatos;
-	}	
+	}
+
+	/**
+	 * @return the enderecos
+	 */
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	/**
+	 * @param enderecos the enderecos to set
+	 */
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Pessoa [codigo=" + codigo + ", nome=" + nome + ", tipoPessoa=" + tipoPessoa + ", email=" + email
+				+ ", site=" + site + ", cliente=" + cliente + ", fornecedor=" + fornecedor + ", colaborador="
+				+ colaborador + ", transportadora=" + transportadora + ", contatos=" + contatos + ", enderecos="
+				+ enderecos + "]";
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
@@ -273,15 +299,5 @@ public class Pessoa implements Serializable {
 		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Pessoa [codigo=" + codigo + ", nome=" + nome + ", tipoPessoa=" + tipoPessoa + ", email=" + email
-				+ ", site=" + site + ", cliente=" + cliente + ", fornecedor=" + fornecedor + ", colaborador="
-				+ colaborador + ", transportadora=" + transportadora + "]";
 	}	
 }

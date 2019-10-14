@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="TB_ENDERECO")
 public class Endereco implements Serializable {
@@ -70,7 +72,7 @@ public class Endereco implements Serializable {
 	@Column(name="CORRESPONDENCIA")
 	private String correspondencia;
 	
-	@NotNull
+	@JsonIgnoreProperties("pessoa")
 	@OneToOne
 	@JoinColumn(referencedColumnName="codigo", name="CODIGO_PESSOA")
 	private Pessoa pessoa;

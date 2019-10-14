@@ -45,6 +45,9 @@
         <javassist.version>3.24.0-GA</javassist.version>
         
         <hibernate.version>5.4.1.Final</hibernate.version>  
+        
+        <spring-security-oauth2.version>2.2.1.RELEASE</spring-security-oauth2.version>
+		<spring-security-jwt.version>1.0.9.RELEASE</spring-security-jwt.version>
 
         <profile.no-liquibase />
 	</properties>
@@ -54,7 +57,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Greenwich.RELEASE</version>
+				<version>Greenwich.SR2</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -99,9 +102,8 @@
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-jpamodelgen</artifactId>
-		    <version>${hibernate.version}</version>
 		</dependency>
-
+		
 		<!-- mysql -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -184,7 +186,31 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-oauth2</artifactId>
+		</dependency>
+		
+<!-- 		<dependency> -->
+<!--             <groupId>org.springframework.security.oauth</groupId> -->
+<!--             <artifactId>spring-security-oauth2</artifactId> -->
+<!--             <version>${spring-security-oauth2.version}</version> -->
+<!--         </dependency> -->
 
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springframework.security</groupId> -->
+<!-- 		    <artifactId>spring-security-oauth2-client</artifactId> -->
+<!-- 		</dependency> -->
+		
+
+<!--         <dependency> -->
+<!--             <groupId>org.springframework.security</groupId> -->
+<!--             <artifactId>spring-security-jwt</artifactId> -->
+<!--             <version>${spring-security-jwt.version}</version> -->
+<!--         </dependency> -->
+
+			
 	</dependencies>
 
 	<build>

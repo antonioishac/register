@@ -1,12 +1,22 @@
 logging:
   level:
     ROOT: INFO
-    br.com.cactusdigital.erp.cadastros: DEBUG
-    
+    br.com.cactusdigital.erp.register: DEBUG
+    org.springframework.security: trace
 server:
   port: 8082
 
+
 spring:
+  
+#  security:
+#    oauth2:
+#      client:
+#        provider:
+#          uaa: 
+#            user-info-authentication-
+#            user-info-uri: 
+  
   jpa:
     database: mysql
     show-sql: true
@@ -57,5 +67,14 @@ management:
   endpoint:
     auditevents:
       enabled: true
+
+
+security:
+  oauth2:
+    client:
+      client-id: cactus
+      client-secret: cactus
+    resource:
+      token-info-uri: http://localhost:9999/oauth/check_token
 
 application:

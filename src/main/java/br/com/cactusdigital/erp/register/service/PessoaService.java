@@ -42,6 +42,10 @@ public class PessoaService {
 			pessoa.getContatos().forEach(c -> c.setPessoa(pessoa));		
 		}
 		
+		if (pessoa.getEnderecos() != null) {
+			pessoa.getEnderecos().forEach(e -> e.setPessoa(pessoa));
+		}
+		
 		Pessoa pessoaSalva = pessoaRepository.save(pessoa);				
 		return pessoaMapper.toDto(pessoaSalva);
 	}
