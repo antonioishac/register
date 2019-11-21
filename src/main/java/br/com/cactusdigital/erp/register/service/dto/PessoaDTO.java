@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import br.com.cactusdigital.erp.register.domain.TipoPessoa;
+
 /**
  * @author Antonio Ishac
  *
@@ -13,7 +15,7 @@ public class PessoaDTO {
 
 	private Long codigo;
 	private String nome;
-	private String tipoPessoa;
+	private TipoPessoa tipoPessoa;
 	private String email;
 	private String site;
 	private String cliente;
@@ -22,7 +24,7 @@ public class PessoaDTO {
 	private String transportadora;
 	//private PessoaFisicaDTO pessoaFisica;
 	//private PessoaJuridicaDTO pessoaJuridica;
-	
+
 	private List<ContatoDTO> contatos;
 	//private List<EnderecoDTO> enderecos;
 	//private List<TelefoneDTO> telefones;
@@ -50,18 +52,20 @@ public class PessoaDTO {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	/**
 	 * @return the tipoPessoa
 	 */
-	public String getTipoPessoa() {
+	public TipoPessoa getTipoPessoa() {
 		return tipoPessoa;
 	}
 	/**
 	 * @param tipoPessoa the tipoPessoa to set
 	 */
-	public void setTipoPessoa(String tipoPessoa) {
+	public void setTipoPessoa(TipoPessoa tipoPessoa) {
 		this.tipoPessoa = tipoPessoa;
 	}
+
 	/**
 	 * @return the email
 	 */
@@ -145,5 +149,5 @@ public class PessoaDTO {
 	 */
 	public void setContatos(List<ContatoDTO> contatos) {
 		this.contatos = contatos;
-	}	
+	}
 }
