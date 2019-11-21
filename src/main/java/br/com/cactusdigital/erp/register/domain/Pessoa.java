@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -40,14 +42,16 @@ public class Pessoa implements Serializable {
 	/**
 	 * Atributo que representa a coluna nome.
 	 */
+	@NotBlank(message = "")
 	@Column(name="NOME")
 	private String nome;
 
 	/**
 	 * Atributo que representa a coluna tipo pessoa.
 	 */
+	@NotNull(message = "")
 	@Column(name="TIPO_PESSOA")
-	private String tipoPessoa;
+	private TipoPessoa tipoPessoa;
 
 	/**
 	 * Atributo que representa a coluna email.
@@ -84,23 +88,23 @@ public class Pessoa implements Serializable {
 	 */
 	@Column(name="TRANSPORTADORA")
 	private String transportadora;
-	
+
 	//@JsonIgnoreProperties("pessoa")
 	//@OneToOne(fetch = FetchType.LAZY, mappedBy = "pessoa", cascade = CascadeType.ALL)
     //private PessoaFisica pessoaFisica;
-	
+
 	//@JsonIgnoreProperties("pessoa")
 	//@OneToOne(fetch = FetchType.LAZY, mappedBy = "pessoa", cascade = CascadeType.ALL)
     //private PessoaJuridica pessoaJuridica;
-    
+
 	@JsonIgnoreProperties("pessoa")
 	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contato> contatos;
-    
+
 	@JsonIgnoreProperties("pessoa")
 	@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)
 	private List<Endereco> enderecos = new ArrayList<>();
-	
+
 	//@JsonIgnoreProperties("pessoa")
 	//@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)
     //private List<Telefone> telefones = new ArrayList<>();
@@ -136,14 +140,14 @@ public class Pessoa implements Serializable {
 	/**
 	 * @return the tipoPessoa
 	 */
-	public String getTipoPessoa() {
+	public TipoPessoa getTipoPessoa() {
 		return tipoPessoa;
 	}
 
 	/**
 	 * @param tipoPessoa the tipoPessoa to set
 	 */
-	public void setTipoPessoa(String tipoPessoa) {
+	public void setTipoPessoa(TipoPessoa tipoPessoa) {
 		this.tipoPessoa = tipoPessoa;
 	}
 
@@ -230,7 +234,7 @@ public class Pessoa implements Serializable {
 	public void setTransportadora(String transportadora) {
 		this.transportadora = transportadora;
 	}
-	
+
 	/**
 	 * @return the contatos
 	 */
@@ -299,5 +303,5 @@ public class Pessoa implements Serializable {
 		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
-	}	
+	}
 }
