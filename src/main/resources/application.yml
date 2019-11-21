@@ -6,17 +6,7 @@ logging:
 server:
   port: 8082
 
-
-spring:
-  
-#  security:
-#    oauth2:
-#      client:
-#        provider:
-#          uaa: 
-#            user-info-authentication-
-#            user-info-uri: 
-  
+spring:  
   jpa:
     database: mysql
     show-sql: true
@@ -52,9 +42,7 @@ spring:
     deserialization:
       fail-on-unknown-properties: false
   profiles:
-    active: native
-  messages:
-    basename: i18n/messages
+    active: native  
   liquibase:
     change-log: classpath:db/liquibase-changelog.xml
     enabled: true

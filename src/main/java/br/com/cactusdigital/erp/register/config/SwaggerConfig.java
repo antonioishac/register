@@ -72,7 +72,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("API de cadastros do sistema ERP").description("")
                 .termsOfServiceUrl("https://cactuserp.com.br/cadastros/swagger-ui.html")
-                .contact(new Contact("Arquitetura de solu\u00e7\u00f5es", "http://www.cactuserp.com.br", "contato@cactuserp.com.br"))
+                .contact(new Contact("Projeto cadastros", "http://www.cactuserp.com.br", "contato@cactuserp.com.br"))
                 .license("Open Source").licenseUrl("https://cactuserp.com.br/cadastros/").version("1.0.0").build();
     }
 }
