@@ -2,16 +2,21 @@
   	<modelVersion>4.0.0</modelVersion>
   	<groupId>br.com.cactusdigital.erp.register</groupId>
   	<artifactId>register</artifactId>
-  	<version>0.0.1-SNAPSHOT</version>
+  	<version>1.0-SNAPSHOT</version>
 
   	<name>register</name>
-	<description>Módulo cadastros - cactuserp</description>
+	<description>M\u00f3dulo cadastros - cactuserp</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
+<<<<<<< HEAD
 		<version>2.2.6.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
+=======
+		<version>2.1.4.RELEASE</version>
+		<relativePath />
+>>>>>>> 34b6fc5ce0059c6a22f2ac207c1a8eaa7e90878b
 	</parent>
 
 	<properties>
@@ -23,6 +28,7 @@
         <swagger.version>2.8.0</swagger.version>
         <commons-lang3.version>3.4</commons-lang3.version>
         <version-map-struct>1.2.0.Final</version-map-struct>
+<<<<<<< HEAD
         <liquibase.version>3.6.3</liquibase.version>
         <javassist.version>3.20.0-GA</javassist.version>
         <liquibase-maven-plugin.version>3.6.3</liquibase-maven-plugin.version>
@@ -46,6 +52,29 @@
 <!-- 			</dependency> -->
 <!-- 		</dependencies> -->
 <!-- 	</dependencyManagement> -->
+=======
+        <javassist.version>3.20.0-GA</javassist.version>
+        <validation-api.version>1.1.0.Final</validation-api.version>
+        <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
+        <validation-api.version>2.0.1.Final</validation-api.version>
+        <javassist.version>3.24.0-GA</javassist.version>
+        <hibernate.version>5.4.1.Final</hibernate.version>
+        <spring-security-oauth2.version>2.2.1.RELEASE</spring-security-oauth2.version>
+		<spring-security-jwt.version>1.0.9.RELEASE</spring-security-jwt.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Greenwich.SR2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+>>>>>>> 34b6fc5ce0059c6a22f2ac207c1a8eaa7e90878b
 
 	<dependencies>
 
@@ -66,6 +95,7 @@
 			<scope>test</scope>
 		</dependency>
 
+<<<<<<< HEAD
 		<!-- NECESSARIO PARA O EUREKA -->
 <!-- 		<dependency> -->
 <!-- 		    <groupId>org.springframework.cloud</groupId> -->
@@ -78,6 +108,18 @@
 <!-- 			<groupId>org.springframework.cloud</groupId> -->
 <!-- 			<artifactId>spring-cloud-config-client</artifactId> -->
 <!-- 		</dependency> -->
+=======
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+
+		<!-- Cloud Config Client -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-client</artifactId>
+		</dependency>
+>>>>>>> 34b6fc5ce0059c6a22f2ac207c1a8eaa7e90878b
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -89,11 +131,19 @@
 		    <artifactId>hibernate-jpamodelgen</artifactId>
 		</dependency>
 
+<<<<<<< HEAD
 		<!-- mysql -->
+=======
+>>>>>>> 34b6fc5ce0059c6a22f2ac207c1a8eaa7e90878b
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
 		</dependency>
 
 		<!-- Hibernate Java 8 Support -->
@@ -111,11 +161,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-
-		<dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-        </dependency>
 
 		<!-- Suporte do Jackson para as datas do Java 8 -->
 		<dependency>
@@ -140,13 +185,11 @@
             <artifactId>HikariCP</artifactId>
         </dependency>
 
-        <!-- Adicionando a dependencia do Spring Boot Starter Actuator -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- SWAGGER -->
         <dependency>
 		    <groupId>io.springfox</groupId>
 		    <artifactId>springfox-swagger-ui</artifactId>
@@ -171,6 +214,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
+<<<<<<< HEAD
 
 		<!-- DEPENDENCIA DO OAUTH2 COM SPRING CLOUD -->
 <!-- 		<dependency> -->
@@ -178,6 +222,14 @@
 <!-- 		    <artifactId>spring-cloud-starter-oauth2</artifactId> -->
 <!-- 		</dependency> -->
 
+=======
+
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-oauth2</artifactId>
+		</dependency>
+
+>>>>>>> 34b6fc5ce0059c6a22f2ac207c1a8eaa7e90878b
 	</dependencies>
 
 	<build>
@@ -192,8 +244,8 @@
 	            <artifactId>maven-compiler-plugin</artifactId>
 
 	            <configuration>
-	                <source>1.8</source> <!-- or higher, depending on your project -->
-	                <target>1.8</target> <!-- or higher, depending on your project -->
+	                <source>1.8</source>
+	                <target>1.8</target>
 	                <annotationProcessorPaths>
 	                    <path>
 	                        <groupId>org.mapstruct</groupId>
@@ -203,6 +255,7 @@
 	                </annotationProcessorPaths>
 	            </configuration>
 	        </plugin>
+<<<<<<< HEAD
 
 
 	        <plugin>
@@ -260,6 +313,8 @@
 
 
 
+=======
+>>>>>>> 34b6fc5ce0059c6a22f2ac207c1a8eaa7e90878b
 	    </plugins>
 	</build>
 

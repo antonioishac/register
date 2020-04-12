@@ -18,11 +18,9 @@ import org.springframework.core.env.Environment;
 import br.com.cactusdigital.erp.register.config.Constants;
 import br.com.cactusdigital.erp.register.config.DefaultProfileUtil;
 import br.com.cactusdigital.erp.register.config.property.RegisterApiProperty;
-//import br.com.gamasaude.fusion.util.EnabledFusionClient;
 
 @SpringBootApplication
 @EnableConfigurationProperties({RegisterApiProperty.class})
-//@EnableDiscoveryClient
 public class CadastrosApplication {
 
 	/**
