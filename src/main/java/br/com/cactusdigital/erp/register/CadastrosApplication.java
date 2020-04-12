@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.core.env.Environment;
 
 import br.com.cactusdigital.erp.register.config.Constants;
@@ -23,8 +22,7 @@ import br.com.cactusdigital.erp.register.config.property.RegisterApiProperty;
 
 @SpringBootApplication
 @EnableConfigurationProperties({RegisterApiProperty.class})
-@EnableDiscoveryClient
-//@EnabledFusionClient
+//@EnableDiscoveryClient
 public class CadastrosApplication {
 
 	/**

@@ -7,16 +7,7 @@ server:
   port: 8082
 
 
-spring:
-  
-#  security:
-#    oauth2:
-#      client:
-#        provider:
-#          uaa: 
-#            user-info-authentication-
-#            user-info-uri: 
-  
+spring:  
   jpa:
     database: mysql
     show-sql: true
@@ -69,12 +60,12 @@ management:
       enabled: true
 
 
-security:
-  oauth2:
-    client:
-      client-id: cactus
-      client-secret: cactus
-    resource:
-      token-info-uri: http://localhost:9999/oauth/check_token
+#security:
+#  oauth2:
+#    client:
+#      client-id: cactus
+#      client-secret: cactus
+#    resource:
+#      token-info-uri: http://localhost:9999/oauth/check_token
 
 application:
