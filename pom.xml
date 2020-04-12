@@ -10,37 +10,28 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-<<<<<<< HEAD
 		<version>2.2.6.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
-=======
-		<version>2.1.4.RELEASE</version>
 		<relativePath />
->>>>>>> 34b6fc5ce0059c6a22f2ac207c1a8eaa7e90878b
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+		<java.version>1.8</java.version>
 		<guava.version>15.0</guava.version>
         <swagger.version>2.8.0</swagger.version>
         <commons-lang3.version>3.4</commons-lang3.version>
         <version-map-struct>1.2.0.Final</version-map-struct>
-<<<<<<< HEAD
-        <liquibase.version>3.6.3</liquibase.version>
         <javassist.version>3.20.0-GA</javassist.version>
-        <liquibase-maven-plugin.version>3.6.3</liquibase-maven-plugin.version>
-        <liquibase-hibernate5.version>3.6</liquibase-hibernate5.version>
         <validation-api.version>1.1.0.Final</validation-api.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <javassist.version>3.24.0-GA</javassist.version>
         <hibernate.version>5.4.1.Final</hibernate.version>
-        <profile.no-liquibase />
+        <spring-security-oauth2.version>2.2.1.RELEASE</spring-security-oauth2.version>
+		<spring-security-jwt.version>1.0.9.RELEASE</spring-security-jwt.version>
 	</properties>
 
-	<!-- DEPENDENCIA DO EUREKA -->
 <!-- 	<dependencyManagement> -->
 <!-- 		<dependencies> -->
 <!-- 			<dependency> -->
@@ -52,29 +43,6 @@
 <!-- 			</dependency> -->
 <!-- 		</dependencies> -->
 <!-- 	</dependencyManagement> -->
-=======
-        <javassist.version>3.20.0-GA</javassist.version>
-        <validation-api.version>1.1.0.Final</validation-api.version>
-        <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
-        <validation-api.version>2.0.1.Final</validation-api.version>
-        <javassist.version>3.24.0-GA</javassist.version>
-        <hibernate.version>5.4.1.Final</hibernate.version>
-        <spring-security-oauth2.version>2.2.1.RELEASE</spring-security-oauth2.version>
-		<spring-security-jwt.version>1.0.9.RELEASE</spring-security-jwt.version>
-	</properties>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Greenwich.SR2</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
->>>>>>> 34b6fc5ce0059c6a22f2ac207c1a8eaa7e90878b
 
 	<dependencies>
 
@@ -95,31 +63,16 @@
 			<scope>test</scope>
 		</dependency>
 
-<<<<<<< HEAD
-		<!-- NECESSARIO PARA O EUREKA -->
 <!-- 		<dependency> -->
 <!-- 		    <groupId>org.springframework.cloud</groupId> -->
 <!-- 		    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId> -->
 <!-- 		</dependency> -->
 
-		<!-- NECESSARIO PARA O EUREKA -->
 		<!-- Cloud Config Client -->
 <!-- 		<dependency> -->
 <!-- 			<groupId>org.springframework.cloud</groupId> -->
 <!-- 			<artifactId>spring-cloud-config-client</artifactId> -->
 <!-- 		</dependency> -->
-=======
-		<dependency>
-		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-
-		<!-- Cloud Config Client -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-client</artifactId>
-		</dependency>
->>>>>>> 34b6fc5ce0059c6a22f2ac207c1a8eaa7e90878b
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -131,10 +84,6 @@
 		    <artifactId>hibernate-jpamodelgen</artifactId>
 		</dependency>
 
-<<<<<<< HEAD
-		<!-- mysql -->
-=======
->>>>>>> 34b6fc5ce0059c6a22f2ac207c1a8eaa7e90878b
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -214,22 +163,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
-<<<<<<< HEAD
 
-		<!-- DEPENDENCIA DO OAUTH2 COM SPRING CLOUD -->
 <!-- 		<dependency> -->
 <!-- 		    <groupId>org.springframework.cloud</groupId> -->
 <!-- 		    <artifactId>spring-cloud-starter-oauth2</artifactId> -->
 <!-- 		</dependency> -->
 
-=======
-
-		<dependency>
-		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>spring-cloud-starter-oauth2</artifactId>
-		</dependency>
-
->>>>>>> 34b6fc5ce0059c6a22f2ac207c1a8eaa7e90878b
 	</dependencies>
 
 	<build>
@@ -255,66 +194,6 @@
 	                </annotationProcessorPaths>
 	            </configuration>
 	        </plugin>
-<<<<<<< HEAD
-
-
-	        <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>${liquibase-maven-plugin.version}</version>
-                <configuration>
-                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
-                    <changeLogFile>src/main/resources/db/db.changelog-master.xml</changeLogFile>
-                    <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
-                    <logging>info</logging>
-                </configuration>
-
-<!--                 <executions> -->
-<!--                 	<execution> -->
-<!--                 		<id>update-profile</id> -->
-<!--                 		<phase>process-resources</phase> -->
-<!--                 		<goals> -->
-<!--                 			<goal>update</goal> -->
-<!--                 		</goals> -->
-<!--                 	</execution> -->
-<!--                     <execution> -->
-<!--                         <id>diff-profile</id> -->
-<!--                         <phase>process-test-resources</phase> -->
-<!--                         <goals> -->
-<!--                             <goal>diff</goal> -->
-<!--                         </goals> -->
-<!--                     </execution> -->
-<!--                 </executions> -->
-
-                <dependencies>
-                    <dependency>
-                        <groupId>org.liquibase.ext</groupId>
-                        <artifactId>liquibase-hibernate5</artifactId>
-                        <version>${liquibase-hibernate5.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-data-jpa</artifactId>
-                        <version>${spring-boot.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>javax.validation</groupId>
-                        <artifactId>validation-api</artifactId>
-                        <version>${validation-api.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.javassist</groupId>
-                        <artifactId>javassist</artifactId>
-                        <version>${javassist.version}</version>
-                    </dependency>
-
-                </dependencies>
-            </plugin>
-
-
-
-=======
->>>>>>> 34b6fc5ce0059c6a22f2ac207c1a8eaa7e90878b
 	    </plugins>
 	</build>
 
