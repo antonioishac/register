@@ -1,11 +1,11 @@
 package br.com.cactusdigital.erp.register.service.dto;
 
-import br.com.cactusdigital.erp.register.domain.TipoTelefone;
+import br.com.cactusdigital.erp.register.domain.enums.TipoTelefoneEnum;
 
 public class TelefoneDTO {
 		
 	private Long codigo;
-	private TipoTelefone tipoTelefone;
+	private TipoTelefoneEnum tipoTelefone;
 	private String numero;
 	private String observacao;
 	private PessoaDTO pessoa;
@@ -25,13 +25,13 @@ public class TelefoneDTO {
 	/**
 	 * @return the tipoTelefone
 	 */
-	public TipoTelefone getTipoTelefone() {
+	public TipoTelefoneEnum getTipoTelefone() {
 		return tipoTelefone;
 	}
 	/**
 	 * @param tipoTelefone the tipoTelefone to set
 	 */
-	public void setTipoTelefone(TipoTelefone tipoTelefone) {
+	public void setTipoTelefone(TipoTelefoneEnum tipoTelefone) {
 		this.tipoTelefone = tipoTelefone;
 	}
 	/**

@@ -1,12 +1,12 @@
-package br.com.cactusdigital.erp.register.domain;
+package br.com.cactusdigital.erp.register.domain.enums;
 
-public enum TipoSexo {
+public enum TipoSexoEnum {
 	
 	M("Masculino"), F("Feminino");
 	
 	private String descricao;
 	
-	TipoSexo(String descricao){
+	TipoSexoEnum(String descricao){
 		this.descricao = descricao;
 	}
 

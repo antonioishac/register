@@ -1,10 +1,10 @@
-package br.com.cactusdigital.erp.register.domain;
+package br.com.cactusdigital.erp.register.domain.enums;
 
 /**
  * @author Antonio
  *
  */
-public enum TipoRegime {
+public enum TipoRegimeEnum {
 
 	LUCRO_REAL(1, "Lucro Real"), 
 	LUCRO_PRESUMIDO(2, "Lucro Presumido"), 
@@ -13,7 +13,7 @@ public enum TipoRegime {
 	private Integer codigo;
 	private String descricao;	
 
-	TipoRegime(Integer codigo, String descricao) {
+	TipoRegimeEnum(Integer codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}
@@ -24,8 +24,8 @@ public enum TipoRegime {
 	 * @param param
 	 * @return TipoRegime
 	 */
-	public static TipoRegime parse(String param) {
-		for (TipoRegime tipoRegime : TipoRegime.values()) {
+	public static TipoRegimeEnum parse(String param) {
+		for (TipoRegimeEnum tipoRegime : TipoRegimeEnum.values()) {
 			if (tipoRegime.name().equalsIgnoreCase(param)) {
 				return tipoRegime;
 			}
@@ -39,8 +39,8 @@ public enum TipoRegime {
 	 * @param param
 	 * @return TipoRegime
 	 */
-	public static TipoRegime parseCode(Integer param) {
-		for (TipoRegime tipoRegime : TipoRegime.values()) {
+	public static TipoRegimeEnum parseCode(Integer param) {
+		for (TipoRegimeEnum tipoRegime : TipoRegimeEnum.values()) {
 			if (tipoRegime.ordinal() == param) {
 				return tipoRegime;
 			}

@@ -28,8 +28,7 @@
         <validation-api.version>2.0.1.Final</validation-api.version>
         <javassist.version>3.24.0-GA</javassist.version>
         <hibernate.version>5.4.1.Final</hibernate.version>
-        <spring-security-oauth2.version>2.2.1.RELEASE</spring-security-oauth2.version>
-		<spring-security-jwt.version>1.0.9.RELEASE</spring-security-jwt.version>
+        <lombok-version>1.18.12</lombok-version>
 	</properties>
 
 <!-- 	<dependencyManagement> -->
@@ -169,6 +168,11 @@
 <!-- 		    <artifactId>spring-cloud-starter-oauth2</artifactId> -->
 <!-- 		</dependency> -->
 
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -186,6 +190,11 @@
 	                <source>1.8</source>
 	                <target>1.8</target>
 	                <annotationProcessorPaths>
+	                	<path>
+			                <groupId>org.projectlombok</groupId>
+			                <artifactId>lombok</artifactId>
+			                <version>${lombok-version}</version>
+			            </path>
 	                    <path>
 	                        <groupId>org.mapstruct</groupId>
 	                        <artifactId>mapstruct-processor</artifactId>

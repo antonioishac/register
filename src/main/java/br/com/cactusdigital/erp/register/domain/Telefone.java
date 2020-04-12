@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import br.com.cactusdigital.erp.register.domain.enums.TipoTelefoneEnum;
+
 /**
  * @author Antonio
  *
@@ -32,7 +34,7 @@ public class Telefone implements Serializable {
 	
 	@Column(name="TIPO_TELEFONE")
 	@Enumerated(EnumType.STRING)
-	private TipoTelefone tipoTelefone;
+	private TipoTelefoneEnum tipoTelefone;
 	
 	@Column(name="NUMERO")
 	private String numero;
@@ -61,14 +63,14 @@ public class Telefone implements Serializable {
 	/**
 	 * @return the tipoTelefone
 	 */
-	public TipoTelefone getTipoTelefone() {
+	public TipoTelefoneEnum getTipoTelefone() {
 		return tipoTelefone;
 	}
 
 	/**
 	 * @param tipoTelefone the tipoTelefone to set
 	 */
-	public void setTipoTelefone(TipoTelefone tipoTelefone) {
+	public void setTipoTelefone(TipoTelefoneEnum tipoTelefone) {
 		this.tipoTelefone = tipoTelefone;
 	}
 

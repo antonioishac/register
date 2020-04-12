@@ -2,7 +2,7 @@ package br.com.cactusdigital.erp.register.service.dto;
 
 import java.util.Date;
 
-import br.com.cactusdigital.erp.register.domain.TipoRegime;
+import br.com.cactusdigital.erp.register.domain.enums.TipoRegimeEnum;
 
 public class PessoaJuridicaDTO {
 	
@@ -12,7 +12,7 @@ public class PessoaJuridicaDTO {
 	private String inscricaoMunicipal;	
 	private String inscricaoEstadual;	
 	private Date dataConstituicao;
-	private TipoRegime tipoRegime;	
+	private TipoRegimeEnum tipoRegime;	
 	private String tipoCrt;
 	private String suframa;	
 	private PessoaDTO pessoa;	
@@ -39,7 +39,7 @@ public class PessoaJuridicaDTO {
 		this.inscricaoMunicipal = inscricaoMunicipal;
 		this.inscricaoEstadual = inscricaoEstadual;
 		this.dataConstituicao = dataConstituicao;
-		this.tipoRegime = TipoRegime.parse(tipoRegime);
+		this.tipoRegime = TipoRegimeEnum.parse(tipoRegime);
 		this.tipoCrt = tipoCrt;
 		this.suframa = suframa;		
 		this.pessoa = new PessoaDTO();
@@ -121,13 +121,13 @@ public class PessoaJuridicaDTO {
 	/**
 	 * @return the tipoRegime
 	 */
-	public TipoRegime getTipoRegime() {
+	public TipoRegimeEnum getTipoRegime() {
 		return tipoRegime;
 	}
 	/**
 	 * @param tipoRegime the tipoRegime to set
 	 */
-	public void setTipoRegime(TipoRegime tipoRegime) {
+	public void setTipoRegime(TipoRegimeEnum tipoRegime) {
 		this.tipoRegime = tipoRegime;
 	}
 	/**

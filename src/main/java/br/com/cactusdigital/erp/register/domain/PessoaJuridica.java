@@ -15,6 +15,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import br.com.cactusdigital.erp.register.domain.enums.TipoRegimeEnum;
+
 /**
  * 
  * Registrat informacoes sobre pessoa juridica, espelho da tabela TB_PESSOA_JURIDICA da base de dados
@@ -76,7 +78,7 @@ public class PessoaJuridica implements Serializable {
 	 */
 	@Column(name="TIPO_REGIME")
 	@Enumerated(EnumType.STRING)
-	private TipoRegime tipoRegime;
+	private TipoRegimeEnum tipoRegime;
 		
 	//TODO entender melho o que siginifica o tipo CRT
 	@Column(name="TIPO_CRT")
@@ -182,14 +184,14 @@ public class PessoaJuridica implements Serializable {
 	/**
 	 * @return the tipoRegime
 	 */
-	public TipoRegime getTipoRegime() {
+	public TipoRegimeEnum getTipoRegime() {
 		return tipoRegime;
 	}
 
 	/**
 	 * @param tipoRegime the tipoRegime to set
 	 */
-	public void setTipoRegime(TipoRegime tipoRegime) {
+	public void setTipoRegime(TipoRegimeEnum tipoRegime) {
 		this.tipoRegime = tipoRegime;
 	}
 

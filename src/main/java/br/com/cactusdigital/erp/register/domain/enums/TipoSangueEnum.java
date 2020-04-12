@@ -1,12 +1,12 @@
-package br.com.cactusdigital.erp.register.domain;
+package br.com.cactusdigital.erp.register.domain.enums;
 
-public enum TipoSangue {
+public enum TipoSangueEnum {
 	
 	O_POSITIVO("Tipo O+"), O_NEGATIVO("Tipo O-");
 	
 	private String descricao;
 	
-	TipoSangue(String descricao) {
+	TipoSangueEnum(String descricao) {
 		this.descricao = descricao;
 	}
 

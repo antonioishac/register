@@ -21,7 +21,7 @@ import br.com.cactusdigital.erp.register.service.dto.filter.PessoaFilter;
 
 @RestController
 @RequestMapping("/api")
-public class PessoaResource {
+public class PessoaController {
 	
 	@Autowired
 	private PessoaService pessoaService;

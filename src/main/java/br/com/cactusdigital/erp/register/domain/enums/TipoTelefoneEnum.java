@@ -1,10 +1,10 @@
-package br.com.cactusdigital.erp.register.domain;
+package br.com.cactusdigital.erp.register.domain.enums;
 
 /**
  * @author Antonio
  *
  */
-public enum TipoTelefone {
+public enum TipoTelefoneEnum {
 	
 	RESIDENCIAL(1, "Residencial"), 
 	COMERCIAL(2, "Comercial"), 
@@ -15,7 +15,7 @@ public enum TipoTelefone {
 	private Integer codigo;
 	private String descricao;
 	
-	TipoTelefone(Integer codigo, String descricao) {
+	TipoTelefoneEnum(Integer codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}

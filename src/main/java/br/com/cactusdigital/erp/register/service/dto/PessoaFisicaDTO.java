@@ -2,9 +2,9 @@ package br.com.cactusdigital.erp.register.service.dto;
 
 import java.util.Date;
 
-import br.com.cactusdigital.erp.register.domain.TipoRaca;
-import br.com.cactusdigital.erp.register.domain.TipoSangue;
-import br.com.cactusdigital.erp.register.domain.TipoSexo;
+import br.com.cactusdigital.erp.register.domain.enums.TipoRacaEnum;
+import br.com.cactusdigital.erp.register.domain.enums.TipoSangueEnum;
+import br.com.cactusdigital.erp.register.domain.enums.TipoSexoEnum;
 
 public class PessoaFisicaDTO {
 	
@@ -14,11 +14,11 @@ public class PessoaFisicaDTO {
 	private String orgaoRg;	
 	private Date dataEmissaoRg;	
 	private Date dataNascimento;	
-	private TipoSexo tipoSexo;	
+	private TipoSexoEnum tipoSexo;	
 	private String naturalidade;	
 	private String nacionalidade;	
-	private TipoRaca tipoRaca;	
-	private TipoSangue tipoSangue;	
+	private TipoRacaEnum tipoRaca;	
+	private TipoSangueEnum tipoSangue;	
 	private String cnhNumero;
 	private String cnhCategoria;	
 	private Date cnhVencimento;	
@@ -107,13 +107,13 @@ public class PessoaFisicaDTO {
 	/**
 	 * @return the tipoSexo
 	 */
-	public TipoSexo getTipoSexo() {
+	public TipoSexoEnum getTipoSexo() {
 		return tipoSexo;
 	}
 	/**
 	 * @param tipoSexo the tipoSexo to set
 	 */
-	public void setTipoSexo(TipoSexo tipoSexo) {
+	public void setTipoSexo(TipoSexoEnum tipoSexo) {
 		this.tipoSexo = tipoSexo;
 	}
 	/**
@@ -143,25 +143,25 @@ public class PessoaFisicaDTO {
 	/**
 	 * @return the tipoRaca
 	 */
-	public TipoRaca getTipoRaca() {
+	public TipoRacaEnum getTipoRaca() {
 		return tipoRaca;
 	}
 	/**
 	 * @param tipoRaca the tipoRaca to set
 	 */
-	public void setTipoRaca(TipoRaca tipoRaca) {
+	public void setTipoRaca(TipoRacaEnum tipoRaca) {
 		this.tipoRaca = tipoRaca;
 	}
 	/**
 	 * @return the tipoSangue
 	 */
-	public TipoSangue getTipoSangue() {
+	public TipoSangueEnum getTipoSangue() {
 		return tipoSangue;
 	}
 	/**
 	 * @param tipoSangue the tipoSangue to set
 	 */
-	public void setTipoSangue(TipoSangue tipoSangue) {
+	public void setTipoSangue(TipoSangueEnum tipoSangue) {
 		this.tipoSangue = tipoSangue;
 	}
 	/**

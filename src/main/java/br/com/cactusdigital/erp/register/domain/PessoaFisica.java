@@ -15,6 +15,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import br.com.cactusdigital.erp.register.domain.enums.TipoRacaEnum;
+import br.com.cactusdigital.erp.register.domain.enums.TipoSangueEnum;
+import br.com.cactusdigital.erp.register.domain.enums.TipoSexoEnum;
+
 /**
  * @author Antonio
  *
@@ -73,7 +77,7 @@ public class PessoaFisica implements Serializable {
 	 */
 	@Column(name="TIPO_SEXO")
 	@Enumerated(EnumType.STRING)
-	private TipoSexo tipoSexo;
+	private TipoSexoEnum tipoSexo;
 	
 	/**
 	 * Naturalidade da pessoa fisica
@@ -92,14 +96,14 @@ public class PessoaFisica implements Serializable {
 	 */
 	@Column(name="TIPO_RACA")
 	@Enumerated(EnumType.STRING)
-	private TipoRaca tipoRaca;
+	private TipoRacaEnum tipoRaca;
 	
 	/**
 	 * Tipo sanguinio da pessoa fisica
 	 */
 	@Column(name="TIPO_SANGUE")
 	@Enumerated(EnumType.STRING)
-	private TipoSangue tipoSangue;
+	private TipoSangueEnum tipoSangue;
 	
 	/**
 	 * Numero da CNH, carteira de motorista
@@ -263,14 +267,14 @@ public class PessoaFisica implements Serializable {
 	/**
 	 * @return the tipoSexo
 	 */
-	public TipoSexo getTipoSexo() {
+	public TipoSexoEnum getTipoSexo() {
 		return tipoSexo;
 	}
 
 	/**
 	 * @param tipoSexo the tipoSexo to set
 	 */
-	public void setTipoSexo(TipoSexo tipoSexo) {
+	public void setTipoSexo(TipoSexoEnum tipoSexo) {
 		this.tipoSexo = tipoSexo;
 	}
 
@@ -305,28 +309,28 @@ public class PessoaFisica implements Serializable {
 	/**
 	 * @return the tipoRaca
 	 */
-	public TipoRaca getTipoRaca() {
+	public TipoRacaEnum getTipoRaca() {
 		return tipoRaca;
 	}
 
 	/**
 	 * @param tipoRaca the tipoRaca to set
 	 */
-	public void setTipoRaca(TipoRaca tipoRaca) {
+	public void setTipoRaca(TipoRacaEnum tipoRaca) {
 		this.tipoRaca = tipoRaca;
 	}
 
 	/**
 	 * @return the tipoSangue
 	 */
-	public TipoSangue getTipoSangue() {
+	public TipoSangueEnum getTipoSangue() {
 		return tipoSangue;
 	}
 
 	/**
 	 * @param tipoSangue the tipoSangue to set
 	 */
-	public void setTipoSangue(TipoSangue tipoSangue) {
+	public void setTipoSangue(TipoSangueEnum tipoSangue) {
 		this.tipoSangue = tipoSangue;
 	}
 

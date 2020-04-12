@@ -17,18 +17,19 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import br.com.cactusdigital.erp.register.domain.enums.TipoPessoaEnum;
+import lombok.Data;
+
 /**
  * @author Antonio Ishac
  *
  * Classe que representa a tabela TB_PESSOA na base de dados
  */
+@Data
 @Entity
 @Table(name="TB_PESSOA")
 public class Pessoa implements Serializable {
 
-	/**
-	 * Serial UID
-	 */
 	private static final long serialVersionUID = 2309291428518603762L;
 
 	/**
@@ -51,7 +52,7 @@ public class Pessoa implements Serializable {
 	 */
 	@NotNull(message = "")
 	@Column(name="TIPO_PESSOA")
-	private TipoPessoa tipoPessoa;
+	private TipoPessoaEnum tipoPessoa;
 
 	/**
 	 * Atributo que representa a coluna email.
@@ -109,199 +110,5 @@ public class Pessoa implements Serializable {
 	//@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)
     //private List<Telefone> telefones = new ArrayList<>();
 
-	/**
-	 * @return the codigo
-	 */
-	public Long getCodigo() {
-		return codigo;
-	}
 
-	/**
-	 * @param codigo the codigo to set
-	 */
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
-	}
-
-	/**
-	 * @return the nome
-	 */
-	public String getNome() {
-		return nome;
-	}
-
-	/**
-	 * @param nome the nome to set
-	 */
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	/**
-	 * @return the tipoPessoa
-	 */
-	public TipoPessoa getTipoPessoa() {
-		return tipoPessoa;
-	}
-
-	/**
-	 * @param tipoPessoa the tipoPessoa to set
-	 */
-	public void setTipoPessoa(TipoPessoa tipoPessoa) {
-		this.tipoPessoa = tipoPessoa;
-	}
-
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	/**
-	 * @return the site
-	 */
-	public String getSite() {
-		return site;
-	}
-
-	/**
-	 * @param site the site to set
-	 */
-	public void setSite(String site) {
-		this.site = site;
-	}
-
-	/**
-	 * @return the cliente
-	 */
-	public String getCliente() {
-		return cliente;
-	}
-
-	/**
-	 * @param cliente the cliente to set
-	 */
-	public void setCliente(String cliente) {
-		this.cliente = cliente;
-	}
-
-	/**
-	 * @return the fornecedor
-	 */
-	public String getFornecedor() {
-		return fornecedor;
-	}
-
-	/**
-	 * @param fornecedor the fornecedor to set
-	 */
-	public void setFornecedor(String fornecedor) {
-		this.fornecedor = fornecedor;
-	}
-
-	/**
-	 * @return the colaborador
-	 */
-	public String getColaborador() {
-		return colaborador;
-	}
-
-	/**
-	 * @param colaborador the colaborador to set
-	 */
-	public void setColaborador(String colaborador) {
-		this.colaborador = colaborador;
-	}
-
-	/**
-	 * @return the transportadora
-	 */
-	public String getTransportadora() {
-		return transportadora;
-	}
-
-	/**
-	 * @param transportadora the transportadora to set
-	 */
-	public void setTransportadora(String transportadora) {
-		this.transportadora = transportadora;
-	}
-
-	/**
-	 * @return the contatos
-	 */
-	public List<Contato> getContatos() {
-		return contatos;
-	}
-
-	/**
-	 * @param contatos the contatos to set
-	 */
-	public void setContatos(List<Contato> contatos) {
-		this.contatos = contatos;
-	}
-
-	/**
-	 * @return the enderecos
-	 */
-	public List<Endereco> getEnderecos() {
-		return enderecos;
-	}
-
-	/**
-	 * @param enderecos the enderecos to set
-	 */
-	public void setEnderecos(List<Endereco> enderecos) {
-		this.enderecos = enderecos;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Pessoa [codigo=" + codigo + ", nome=" + nome + ", tipoPessoa=" + tipoPessoa + ", email=" + email
-				+ ", site=" + site + ", cliente=" + cliente + ", fornecedor=" + fornecedor + ", colaborador="
-				+ colaborador + ", transportadora=" + transportadora + ", contatos=" + contatos + ", enderecos="
-				+ enderecos + "]";
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
-		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pessoa other = (Pessoa) obj;
-		if (codigo == null) {
-			if (other.codigo != null)
-				return false;
-		} else if (!codigo.equals(other.codigo))
-			return false;
-		return true;
-	}
 }

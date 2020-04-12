@@ -1,12 +1,12 @@
-package br.com.cactusdigital.erp.register.domain;
+package br.com.cactusdigital.erp.register.domain.enums;
 
-public enum TipoRaca {
+public enum TipoRacaEnum {
 	
 	BRANCO("Branco"), PARDO("Pardo"), AFRO_DESCENDENTE("Afro Descendente");
 	
 	private String descricao;
 
-	TipoRaca(String descricao) {
+	TipoRacaEnum(String descricao) {
 		this.descricao = descricao;
 	}
 
