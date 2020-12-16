@@ -11,5 +11,9 @@ public class Constants {
     public static final String PROFILE_HML = "hml";
     public static final String PROFILE_PROD = "prod";
     public static final String PROFILE_CLOUD = "cloud";
+
+    private Constants() {
+        throw new IllegalStateException("Utility class");
+    }
     
 }

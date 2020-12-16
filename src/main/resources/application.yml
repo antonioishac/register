@@ -8,15 +8,6 @@ server:
 
 
 spring:
-  
-#  security:
-#    oauth2:
-#      client:
-#        provider:
-#          uaa: 
-#            user-info-authentication-
-#            user-info-uri: 
-  
   jpa:
     database: mysql
     show-sql: true
@@ -55,26 +46,4 @@ spring:
     active: native
   messages:
     basename: i18n/messages
-  liquibase:
-    change-log: classpath:db/liquibase-changelog.xml
-    enabled: true
-   
-management:
-  endpoints:
-    web:
-      exposure:
-        include: ["health","info"]
-  endpoint:
-    auditevents:
-      enabled: true
 
-
-security:
-  oauth2:
-    client:
-      client-id: cactus
-      client-secret: cactus
-    resource:
-      token-info-uri: http://localhost:9999/oauth/check_token
-
-application:

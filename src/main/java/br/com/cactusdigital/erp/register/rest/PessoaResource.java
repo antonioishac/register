@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.cactusdigital.erp.register.service.PessoaService;
 import br.com.cactusdigital.erp.register.service.dto.PessoaDTO;
 import br.com.cactusdigital.erp.register.service.dto.filter.PessoaFilter;
@@ -27,41 +26,33 @@ public class PessoaResource {
 	private PessoaService pessoaService;
 	
 	@PostMapping("/pessoa")
-	public ResponseEntity<PessoaDTO> criar(@RequestBody PessoaDTO pessoaDTO) {
+	public ResponseEntity<PessoaDTO> create(@RequestBody PessoaDTO pessoaDTO) {
 		PessoaDTO pessoa = pessoaService.save(pessoaDTO);
 		return ResponseEntity.status(HttpStatus.CREATED).body(pessoa);
 	}
 	
 	@PutMapping("/pessoa/{codigo}")
-	public ResponseEntity<PessoaDTO> atualizar(@PathVariable Long codigo, @RequestBody PessoaDTO pessoaDTO) {
-		PessoaDTO pessoaSalva = pessoaService.atualizar(codigo, pessoaDTO);
+	
+	public ResponseEntity<PessoaDTO> update(@PathVariable Long codigo, @RequestBody PessoaDTO pessoaDTO) {
+		PessoaDTO pessoaSalva = pessoaService.update(codigo, pessoaDTO);
 		return ResponseEntity.ok(pessoaSalva);
 	}
-	
-	/**
-	 * API que busca uma pessoa pelo codigo.
-	 * 
-	 * @param Long codigo
-	 * @return ResponseEntity<PessoaDTO>
-	 */
+
 	@GetMapping("/pessoa/{codigo}")
-	public ResponseEntity<PessoaDTO> buscarPessoaCodigo(@PathVariable Long codigo) {
+	public ResponseEntity<PessoaDTO> searchPersonByCode(@PathVariable Long codigo) {
 		PessoaDTO pessoa = pessoaService.buscarPessoaPeloCodigo(codigo);
 		return pessoa == null ? ResponseEntity.noContent().build() : ResponseEntity.ok(pessoa);
 	}
 	
 	@GetMapping("/pessoa/todos")
-	public ResponseEntity<Page<PessoaDTO>> listarPessoas(PessoaFilter filter, Pageable pageable) {
+	public ResponseEntity<Page<PessoaDTO>> listAll(PessoaFilter filter, Pageable pageable) {
 		Page<PessoaDTO> pessoas = pessoaService.filtrarPessoa(filter, pageable);
 		return pessoas == null ? ResponseEntity.noContent().build() : ResponseEntity.ok(pessoas);
 	}
-	
-	/**
-	 * @param codigo
-	 */
+
 	@DeleteMapping("/pessoa/{codigo}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void removerPessoa(@PathVariable Long codigo) {
+	public void removePerson(@PathVariable Long codigo) {
 		pessoaService.removerPessoa(codigo);
 	}
 }

@@ -14,31 +14,19 @@ import br.com.cactusdigital.erp.register.service.dto.filter.PessoaFilter;
 import br.com.cactusdigital.erp.register.service.mapper.PessoaMapper;
 
 @Service
-@Transactional
 public class PessoaService {
 
-	/**
-	 * Injecao do repositorio pessoa
-	 */
 	@Autowired
 	private PessoaRepository pessoaRepository;
 	
 	@Autowired
 	private PessoaMapper pessoaMapper;
-	
-//	@Autowired
-//	private PessoaPageMapper pessoaPageMapper;
-	
-	/**
-	 * Servico para persistir pessoa
-	 * 
-	 * @param pessoaDTO
-	 * @return
-	 */
+
+	@Transactional
 	public PessoaDTO save(PessoaDTO pessoaDTO) {		
 		Pessoa pessoa = pessoaMapper.toEntity(pessoaDTO);		
 		
-		if (pessoa.getContatos() != null) {			
+		if (pessoa.getContatos() != null) {
 			pessoa.getContatos().forEach(c -> c.setPessoa(pessoa));		
 		}
 		
@@ -49,14 +37,15 @@ public class PessoaService {
 		Pessoa pessoaSalva = pessoaRepository.save(pessoa);				
 		return pessoaMapper.toDto(pessoaSalva);
 	}
-	
-	public PessoaDTO atualizar(Long codigo, PessoaDTO pessoaDTO) {
+
+	@Transactional
+	public PessoaDTO update(Long codigo, PessoaDTO pessoaDTO) {
 		Optional<Pessoa> pessoaSalva = pessoaRepository.findById(codigo);		
-		PessoaDTO pessoaSalvaDTO = pessoaMapper.toDto(pessoaSalva.get());
+		PessoaDTO personSaveDTO = pessoaMapper.toDto(pessoaSalva.get());
 		
-		BeanUtils.copyProperties(pessoaDTO, pessoaSalvaDTO, "codigo");
+		BeanUtils.copyProperties(pessoaDTO, personSaveDTO, "codigo");
 		
-		Pessoa pessoaAtualizada = pessoaMapper.toEntity(pessoaSalvaDTO);
+		Pessoa pessoaAtualizada = pessoaMapper.toEntity(personSaveDTO);
 		
 		if (pessoaAtualizada.getContatos() != null) {			
 			pessoaAtualizada.getContatos().forEach(c -> c.setPessoa(pessoaAtualizada));
@@ -66,37 +55,23 @@ public class PessoaService {
 		
 		return pessoaMapper.toDto(pessoaAtualizada);
 	}
-	
-	/**
-	 * Servico que retorna uma pessoa pelo codigo buscado.
-	 * 
-	 * @param Long codigo
-	 * @return PessoaDTO
-	 */
+
 	public PessoaDTO buscarPessoaPeloCodigo(Long codigo) {
-		Optional<Pessoa> pessoa = pessoaRepository.findById(codigo);
-		return pessoaMapper.toDto(pessoa.get());
+		return Optional.ofNullable(pessoaMapper.toDto(pessoaRepository.findById(codigo).get())).orElse(null);
 	}
 	
 	public Page<PessoaDTO> filtrarPessoa(PessoaFilter pessoaFilter, Pageable pageable) {
-		Page<Pessoa> pessoas = pessoaRepository.filtrar(pessoaFilter, pageable);		
-		return toPageObjectDto(pessoas);
+		return toPageObjectDto(pessoaRepository.filtrar(pessoaFilter, pageable));
 	}
 	
 	public Page<PessoaDTO> toPageObjectDto(Page<Pessoa> objects) {
-	    Page<PessoaDTO> dtos  = objects.map(this::convertToObjectDto);
-	    return dtos;
+		return objects.map(this::convertToObjectDto);
 	}
 	
 	private PessoaDTO convertToObjectDto(Pessoa pessoa) {
 	    return pessoaMapper.toDto(pessoa);
 	}
-	
-	/**
-	 * Servico que remove uma pessoa pelo codigo.
-	 * 
-	 * @param Long codigo
-	 */
+
 	public void removerPessoa(Long codigo) {
 		pessoaRepository.deleteById(codigo);
 	}

@@ -4,27 +4,20 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Collection;
-
 import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.core.env.Environment;
-
 import br.com.cactusdigital.erp.register.config.Constants;
 import br.com.cactusdigital.erp.register.config.DefaultProfileUtil;
 import br.com.cactusdigital.erp.register.config.property.RegisterApiProperty;
-//import br.com.gamasaude.fusion.util.EnabledFusionClient;
 
 @SpringBootApplication
 @EnableConfigurationProperties({RegisterApiProperty.class})
-@EnableDiscoveryClient
-//@EnabledFusionClient
 public class CadastrosApplication {
 
 	/**
