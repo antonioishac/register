@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.0</version>
+		<version>2.4.1</version>
 		<relativePath />
 	</parent>
 
@@ -20,16 +20,16 @@
 		<java.version>11</java.version>
         <swagger.version>2.9.2</swagger.version>
         <commons-lang3.version>3.4</commons-lang3.version>
-        <spring-boot.version>2.4.0</spring-boot.version>
+        <spring-boot.version>2.4.1</spring-boot.version>
 		<org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
-	</properties>
-	
+	</properties>	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Greenwich.SR2</version>
+				<version>2020.0.0</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -143,16 +143,14 @@
 			<version>${org.mapstruct.version}</version>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>com.github.ulisesbocchio</groupId>-->
-<!--			<artifactId>jasypt-spring-boot</artifactId>-->
-<!--			<version>2.1.1</version>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
 
 	</dependencies>
 
-	<build>
-		<defaultGoal>spring-boot:run</defaultGoal>
+	<build>		
 	    <plugins>
 	    	<plugin>
 				<groupId>org.springframework.boot</groupId>

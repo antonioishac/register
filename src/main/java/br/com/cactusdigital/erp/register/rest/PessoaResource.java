@@ -32,7 +32,6 @@ public class PessoaResource {
 	}
 	
 	@PutMapping("/pessoa/{codigo}")
-	
 	public ResponseEntity<PessoaDTO> update(@PathVariable Long codigo, @RequestBody PessoaDTO pessoaDTO) {
 		PessoaDTO pessoaSalva = pessoaService.update(codigo, pessoaDTO);
 		return ResponseEntity.ok(pessoaSalva);

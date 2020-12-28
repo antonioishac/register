@@ -32,47 +32,22 @@ public class SwaggerConfig {
 
     @Bean
     public Docket api() {
-    	return new Docket(DocumentationType.SWAGGER_2)
-    	        .select()
-    	        .paths(PathSelectors.any())
-    	        .apis(Predicates.or(RequestHandlerSelectors
-    	            .basePackage("br.com.cactusdigital.erp.cadastros.rest"),
-    	            RequestHandlerSelectors
-    	                .basePackage("br.com.cactusdigital.erp.cadastros.rest")))
-    	        .build().directModelSubstitute(LocalDate.class, String.class)
-    	        .genericModelSubstitutes(ResponseEntity.class)
-    	        .apiInfo(apiInfo())
-    	        .securitySchemes(Lists.newArrayList(apiKey()))
-    	        .securityContexts(Arrays.asList(securityContext()));
-    }
-
-    @Bean
-    public SecurityConfiguration security() {
-    return SecurityConfigurationBuilder.builder().scopeSeparator(",")
-        .additionalQueryStringParams(null)
-        .useBasicAuthenticationWithAccessCodeGrant(false).build();
-    }
-
-    private ApiKey apiKey() {
-    	return new ApiKey("apiKey", "Authorization", "header");
-    }
-
-    private SecurityContext securityContext() {
-    	return SecurityContext.builder().securityReferences(defaultAuth())
-    			.forPaths(PathSelectors.any()).build();
-    }
-
-    private List<SecurityReference> defaultAuth() {
-    	AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
-        AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
-        authorizationScopes[0] = authorizationScope;
-        return Arrays.asList(new SecurityReference("apiKey", authorizationScopes));
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .paths(PathSelectors.any())
+                .apis(Predicates.or(RequestHandlerSelectors
+                                .basePackage("br.com.cactusdigital.erp.register.rest"),
+                        RequestHandlerSelectors
+                                .basePackage("br.com.cactusdigital.erp.register.rest")))
+                .build().directModelSubstitute(LocalDate.class, String.class)
+                .genericModelSubstitutes(ResponseEntity.class)
+                .apiInfo(apiInfo());
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("API de cadastros do sistema ERP").description("")
-                .termsOfServiceUrl("https://cactuserp.com.br/cadastros/swagger-ui.html")
-                .contact(new Contact("Arquitetura de solu\u00e7\u00f5es", "http://www.cactuserp.com.br", "contato@cactuserp.com.br"))
-                .license("Open Source").licenseUrl("https://cactuserp.com.br/cadastros/").version("1.0.0").build();
+        return new ApiInfoBuilder().title("API Register ERP").description("")
+                .termsOfServiceUrl("http://localhost:8082/swagger-ui.html")
+                .contact(new Contact("Antônio Ishac", "Telefone: (11) 97178-8887", "e-mail: antonioishac@gmail.com"))
+                .license("Open Source").licenseUrl("API - Register ERP").version("1.0.0").build();
     }
 }
