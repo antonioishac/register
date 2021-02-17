@@ -26,13 +26,13 @@ public class PessoaService {
 	public PessoaDTO save(PessoaDTO pessoaDTO) {		
 		Pessoa pessoa = pessoaMapper.toEntity(pessoaDTO);		
 		
-		if (pessoa.getContatos() != null) {
-			pessoa.getContatos().forEach(c -> c.setPessoa(pessoa));		
-		}
-		
-		if (pessoa.getEnderecos() != null) {
-			pessoa.getEnderecos().forEach(e -> e.setPessoa(pessoa));
-		}
+//		if (pessoa.getContatos() != null) {
+//			pessoa.getContatos().forEach(c -> c.setPessoa(pessoa));
+//		}
+//
+//		if (pessoa.getEnderecos() != null) {
+//			pessoa.getEnderecos().forEach(e -> e.setPessoa(pessoa));
+//		}
 		
 		Pessoa pessoaSalva = pessoaRepository.save(pessoa);				
 		return pessoaMapper.toDto(pessoaSalva);
@@ -47,9 +47,9 @@ public class PessoaService {
 		
 		Pessoa pessoaAtualizada = pessoaMapper.toEntity(personSaveDTO);
 		
-		if (pessoaAtualizada.getContatos() != null) {			
-			pessoaAtualizada.getContatos().forEach(c -> c.setPessoa(pessoaAtualizada));
-		}
+//		if (pessoaAtualizada.getContatos() != null) {
+//			pessoaAtualizada.getContatos().forEach(c -> c.setPessoa(pessoaAtualizada));
+//		}
 		
 		pessoaRepository.save(pessoaAtualizada);
 		

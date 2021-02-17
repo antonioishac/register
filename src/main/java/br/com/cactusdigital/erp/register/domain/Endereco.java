@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="TB_ENDERECO")
+@Table(name="tb_contato")
 public class Endereco implements Serializable {
 	
 	/**

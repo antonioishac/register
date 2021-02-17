@@ -18,9 +18,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
 import br.com.cactusdigital.erp.register.domain.Contato;
-import br.com.cactusdigital.erp.register.domain.Contato_;
 import br.com.cactusdigital.erp.register.domain.Pessoa;
-import br.com.cactusdigital.erp.register.domain.Pessoa_;
 import br.com.cactusdigital.erp.register.service.dto.filter.PessoaFilter;
 
 public class PessoaRepositoryImpl implements PessoaRepositoryQuery {
@@ -47,35 +45,35 @@ public class PessoaRepositoryImpl implements PessoaRepositoryQuery {
 	private Predicate[] criarRestricoes(PessoaFilter pessoaFilter, CriteriaBuilder builder, Root<Pessoa> root) {
 		List<Predicate> predicates = new ArrayList<>();
 		
-		ListJoin<Pessoa, Contato> contatos = root.join(Pessoa_.contatos);		
-		
-		if (!StringUtils.isEmpty(pessoaFilter.getNome())) {
-			predicates.add(builder.like(builder.lower(root.get(Pessoa_.nome)), "%" + pessoaFilter.getNome() + "%"));
-		}
-		
-		if (!StringUtils.isEmpty(pessoaFilter.getTipoPessoa())) {
-			predicates.add(builder.equal(builder.lower(root.get(Pessoa_.tipoPessoa)), pessoaFilter.getTipoPessoa()));
-		}
-		
-		if (!StringUtils.isEmpty(pessoaFilter.getCliente())) {
-			predicates.add(builder.equal(builder.lower(root.get(Pessoa_.cliente)), pessoaFilter.getCliente()));
-		}
-		
-		if (!StringUtils.isEmpty(pessoaFilter.getFornecedor())) {
-			predicates.add(builder.equal(builder.lower(root.get(Pessoa_.fornecedor)), pessoaFilter.getFornecedor()));
-		}
-		
-		if (!StringUtils.isEmpty(pessoaFilter.getColaborador())) {
-			predicates.add(builder.equal(builder.lower(root.get(Pessoa_.colaborador)), pessoaFilter.getColaborador()));
-		}
-		
-		if (!StringUtils.isEmpty(pessoaFilter.getTransportadora())) {
-			predicates.add(builder.equal(builder.lower(root.get(Pessoa_.transportadora)), pessoaFilter.getTransportadora()));
-		}
-		
-		if (!StringUtils.isEmpty(pessoaFilter.getNomeContato())) {
-			predicates.add(builder.like(builder.lower(contatos.get(Contato_.nome)), "%" + pessoaFilter.getNomeContato() + "%"));
-		}
+//		ListJoin<Pessoa, Contato> contatos = root.join(Pessoa_.contatos);
+//
+//		if (!StringUtils.isEmpty(pessoaFilter.getNome())) {
+//			predicates.add(builder.like(builder.lower(root.get(Pessoa_.nome)), "%" + pessoaFilter.getNome() + "%"));
+//		}
+//
+//		if (!StringUtils.isEmpty(pessoaFilter.getTipoPessoa())) {
+//			predicates.add(builder.equal(builder.lower(root.get(Pessoa_.tipoPessoa)), pessoaFilter.getTipoPessoa()));
+//		}
+//
+//		if (!StringUtils.isEmpty(pessoaFilter.getCliente())) {
+//			predicates.add(builder.equal(builder.lower(root.get(Pessoa_.cliente)), pessoaFilter.getCliente()));
+//		}
+//
+//		if (!StringUtils.isEmpty(pessoaFilter.getFornecedor())) {
+//			predicates.add(builder.equal(builder.lower(root.get(Pessoa_.fornecedor)), pessoaFilter.getFornecedor()));
+//		}
+//
+//		if (!StringUtils.isEmpty(pessoaFilter.getColaborador())) {
+//			predicates.add(builder.equal(builder.lower(root.get(Pessoa_.colaborador)), pessoaFilter.getColaborador()));
+//		}
+//
+//		if (!StringUtils.isEmpty(pessoaFilter.getTransportadora())) {
+//			predicates.add(builder.equal(builder.lower(root.get(Pessoa_.transportadora)), pessoaFilter.getTransportadora()));
+//		}
+//
+//		if (!StringUtils.isEmpty(pessoaFilter.getNomeContato())) {
+//			predicates.add(builder.like(builder.lower(contatos.get(Contato_.nome)), "%" + pessoaFilter.getNomeContato() + "%"));
+//		}
 		
 		return predicates.toArray(new Predicate[predicates.size()]);
 	}

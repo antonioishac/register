@@ -25,8 +25,8 @@ public class PessoaDTO {
 	//private PessoaFisicaDTO pessoaFisica;
 	//private PessoaJuridicaDTO pessoaJuridica;
 	
-	private List<ContatoDTO> contatos;
-	private List<EnderecoDTO> enderecos;
+	//private List<ContatoDTO> contatos;
+	//private List<EnderecoDTO> enderecos;
 	//private List<TelefoneDTO> telefones;
 
 }

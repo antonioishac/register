@@ -1,11 +1,10 @@
 package br.com.cactusdigital.erp.register.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +12,7 @@ import java.util.List;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name="TB_PESSOA")
-public class Pessoa implements Serializable {
-
-	private static final long serialVersionUID = 2309291428518603762L;
+public class Pessoa {
 
 	@EqualsAndHashCode.Include
 	@Id
@@ -56,11 +53,11 @@ public class Pessoa implements Serializable {
 	//@OneToOne(fetch = FetchType.LAZY, mappedBy = "pessoa", cascade = CascadeType.ALL)
     //private PessoaJuridica pessoaJuridica;
     
-	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Contato> contatos;
+//	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Contato> contatos;
     
-	@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)
-	private List<Endereco> enderecos = new ArrayList<>();
+//	@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)
+//	private List<Endereco> enderecos = new ArrayList<>();
 	
 	//@JsonIgnoreProperties("pessoa")
 	//@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)
