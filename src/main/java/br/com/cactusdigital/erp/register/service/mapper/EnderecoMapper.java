@@ -10,7 +10,7 @@ import br.com.cactusdigital.erp.register.service.dto.EnderecoDTO;
 public interface EnderecoMapper extends EntityMapper<EnderecoDTO, Endereco> {
 	
 	@Override
-	@Mapping(target="pessoa", ignore= true)
+	@Mapping(target="pessoa", ignore = true)
 	EnderecoDTO toDto(Endereco entity);
 
 }

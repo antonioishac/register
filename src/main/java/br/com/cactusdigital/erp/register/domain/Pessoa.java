@@ -53,11 +53,11 @@ public class Pessoa {
 	//@OneToOne(fetch = FetchType.LAZY, mappedBy = "pessoa", cascade = CascadeType.ALL)
     //private PessoaJuridica pessoaJuridica;
     
-//	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Contato> contatos;
+	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Contato> contatos;
     
-//	@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)
-//	private List<Endereco> enderecos = new ArrayList<>();
+	@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)
+	private List<Endereco> enderecos = new ArrayList<>();
 	
 	//@JsonIgnoreProperties("pessoa")
 	//@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)

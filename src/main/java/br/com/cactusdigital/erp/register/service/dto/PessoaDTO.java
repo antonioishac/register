@@ -13,7 +13,7 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown  = true)
 public class PessoaDTO {
 
-	private Long code;
+	private Long id;
 	private String name;
 	private String typePerson;
 	private String email;
@@ -25,8 +25,8 @@ public class PessoaDTO {
 	//private PessoaFisicaDTO pessoaFisica;
 	//private PessoaJuridicaDTO pessoaJuridica;
 	
-	//private List<ContatoDTO> contatos;
-	//private List<EnderecoDTO> enderecos;
+	private List<ContatoDTO> contatos;
+	private List<EnderecoDTO> enderecos;
 	//private List<TelefoneDTO> telefones;
 
 }

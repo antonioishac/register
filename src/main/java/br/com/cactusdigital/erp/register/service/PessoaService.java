@@ -24,18 +24,18 @@ public class PessoaService {
 
 	@Transactional
 	public PessoaDTO save(PessoaDTO pessoaDTO) {		
-		Pessoa pessoa = pessoaMapper.toEntity(pessoaDTO);		
+		Pessoa person = pessoaMapper.toEntity(pessoaDTO);
 		
-//		if (pessoa.getContatos() != null) {
-//			pessoa.getContatos().forEach(c -> c.setPessoa(pessoa));
-//		}
-//
-//		if (pessoa.getEnderecos() != null) {
-//			pessoa.getEnderecos().forEach(e -> e.setPessoa(pessoa));
-//		}
+		if (person.getContatos() != null) {
+			person.getContatos().forEach(c -> c.setPessoa(person));
+		}
+
+		if (person.getEnderecos() != null) {
+			person.getEnderecos().forEach(e -> e.setPessoa(person));
+		}
 		
-		Pessoa pessoaSalva = pessoaRepository.save(pessoa);				
-		return pessoaMapper.toDto(pessoaSalva);
+		Pessoa savePerson = pessoaRepository.save(person);
+		return pessoaMapper.toDto(savePerson);
 	}
 
 	@Transactional
