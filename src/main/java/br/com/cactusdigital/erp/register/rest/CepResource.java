@@ -2,6 +2,7 @@ package br.com.cactusdigital.erp.register.rest;
 
 import br.com.cactusdigital.erp.register.service.CepService;
 import br.com.cactusdigital.erp.register.service.dto.PublicArea;
+import feign.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,11 @@ public class CepResource {
 
     @GetMapping("{cep}")
     public ResponseEntity<PublicArea> getCeo(@PathVariable("cep") String cep) {
-        return ResponseEntity.ok(cepService.getCep(cep));
+
+        Response responseFeign = cepService.getCep(cep);
+        responseFeign.body();
+
+        return ResponseEntity.ok(null);
     }
 
 }
