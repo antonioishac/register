@@ -12,13 +12,13 @@ import static org.springframework.util.StreamUtils.copyToString;
 public class CepMocks {
 
     public static void setupMockBooksResponse(WireMockServer mockService) throws IOException {
-        mockService.stubFor(WireMock.get(WireMock.urlEqualTo("/v1/ceps/12213324"))
+        mockService.stubFor(WireMock.get(WireMock.urlEqualTo("/v1/ceps/12213324/json"))
                 .willReturn(WireMock.aResponse()
                         .withStatus(HttpStatus.OK.value())
                         .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
                         .withBody(
                                 copyToString(
-                                        CepMocks.class.getClassLoader().getResourceAsStream("payload/get-books-response.json"),
+                                        CepMocks.class.getClassLoader().getResourceAsStream("payload/get-cep-response.json"),
                                         defaultCharset()))));
     }
 }
