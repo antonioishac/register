@@ -23,13 +23,12 @@ public class APIExceptionHandler extends APIHandler {
 		this.properties = properties;
 	}
 
-
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ResponseErrorDTO> handleException(final Exception ex, final ServletWebRequest request) {
 		LOG.error(MESSAGE_DEFAULT_EXCEPTION, ex );
 		ApiErrorDTO error = ApiErrorDTO
 				.builder()
-				.code("999")
+				.code(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()))
 				.description(ex.getMessage())
 				.build();
 		return responseEntity(request, properties.getVersion(), error ,HttpStatus.BAD_REQUEST);
